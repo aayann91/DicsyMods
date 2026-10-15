@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Monetag Verification Tag -->
   <meta name="monetag" content="5e83e9b7fbf32b6e74112c20ab0191f5">
   <title>DicsyMods — Apps & Games</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -20,25 +21,32 @@
       --text-primary: #f8fafc;
       --text-secondary: #94a3b8;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       background-color: var(--bg-deep);
       background-image: 
         radial-gradient(circle at 15% 15%, rgba(0, 229, 255, 0.12) 0%, transparent 35%),
-        radial-gradient(circle at 85% 25%, rgba(139, 92, 246, 0.12) 0%, transparent 40%);
+        radial-gradient(circle at 85% 25%, rgba(139, 92, 246, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 50% 85%, rgba(41, 121, 255, 0.1) 0%, transparent 45%);
       background-attachment: fixed;
       color: var(--text-primary);
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       min-height: 100vh;
+      overflow-x: hidden;
     }
+
     .glass {
       background: var(--glass-surface);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       border: 1px solid var(--glass-border);
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
       border-radius: 18px;
     }
+
+    /* Compact Mobile-First Header */
     header {
       position: sticky;
       top: 10px;
@@ -47,21 +55,26 @@
       margin: 10px auto 0;
       padding: 0 14px;
     }
+
     .nav-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 10px 16px;
       height: 58px;
+      flex-wrap: nowrap;
       position: relative;
     }
+
     .brand {
       display: flex;
       align-items: center;
       gap: 10px;
       text-decoration: none;
       color: var(--text-primary);
+      min-width: 0;
     }
+
     .brand-logo {
       width: 36px;
       height: 36px;
@@ -71,16 +84,36 @@
       align-items: center;
       justify-content: center;
       font-weight: 800;
+      font-size: 1.1rem;
       color: #000;
+      box-shadow: 0 0 14px rgba(0, 229, 255, 0.35);
+      overflow: hidden;
+      flex-shrink: 0;
     }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .brand-title {
       font-size: 1.22rem;
       font-weight: 800;
+      letter-spacing: -0.4px;
       background: linear-gradient(90deg, #fff, var(--cyan));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      white-space: nowrap;
     }
-    .nav-actions { display: flex; align-items: center; gap: 8px; }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
     .icon-btn {
       width: 38px;
       height: 38px;
@@ -93,10 +126,21 @@
       color: #fff;
       cursor: pointer;
       text-decoration: none;
+      transition: all 0.2s ease;
     }
+
     .icon-btn.tg-btn {
       background: linear-gradient(135deg, #229ED9, #1b7db0);
+      border-color: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 3px 12px rgba(34, 158, 217, 0.35);
     }
+
+    .icon-btn:hover {
+      transform: translateY(-1px);
+      border-color: var(--cyan);
+    }
+
+    /* Three-Dot Dropdown Menu */
     .dropdown-menu {
       position: absolute;
       top: 66px;
@@ -104,15 +148,27 @@
       width: 235px;
       background: rgba(12, 16, 28, 0.96);
       backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
       border: 1px solid rgba(0, 229, 255, 0.28);
       border-radius: 14px;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7);
       padding: 8px;
       display: none;
       flex-direction: column;
       gap: 4px;
       z-index: 300;
     }
-    .dropdown-menu.show { display: flex; }
+
+    .dropdown-menu.show {
+      display: flex;
+      animation: fadeIn 0.18s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .menu-item {
       display: flex;
       align-items: center;
@@ -126,16 +182,68 @@
       background: transparent;
       border: none;
       width: 100%;
-      cursor: pointer;
       text-align: left;
+      cursor: pointer;
+      transition: background 0.15s;
     }
-    .menu-item:hover { background: rgba(0, 229, 255, 0.12); color: var(--cyan); }
-    .menu-divider { height: 1px; background: var(--glass-border); margin: 4px 0; }
-    .container { max-width: 1180px; margin: 22px auto; padding: 0 14px; }
-    .hero { text-align: center; padding: 30px 18px; margin-bottom: 20px; }
-    .hero h2 { font-size: clamp(1.55rem, 4vw, 2.35rem); font-weight: 800; margin-bottom: 8px; }
-    .hero p { color: var(--text-secondary); max-width: 540px; margin: 0 auto 20px; font-size: 0.9rem; }
-    .search-wrap { max-width: 520px; margin: 0 auto 16px; position: relative; }
+
+    .menu-item:hover {
+      background: rgba(0, 229, 255, 0.12);
+      color: var(--cyan);
+    }
+
+    .menu-divider {
+      height: 1px;
+      background: var(--glass-border);
+      margin: 4px 0;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1180px;
+      margin: 22px auto;
+      padding: 0 14px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 30px 18px;
+      margin-bottom: 20px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 5px 13px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--cyan);
+      background: rgba(0, 229, 255, 0.1);
+      border: 1px solid rgba(0, 229, 255, 0.25);
+      margin-bottom: 12px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.55rem, 4vw, 2.35rem);
+      font-weight: 800;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero p {
+      color: var(--text-secondary);
+      max-width: 540px;
+      margin: 0 auto 20px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .search-wrap {
+      max-width: 520px;
+      margin: 0 auto 16px;
+      position: relative;
+    }
+
     .search-input {
       width: 100%;
       padding: 14px 18px 14px 44px;
@@ -145,10 +253,30 @@
       color: #fff;
       font-size: 0.93rem;
       outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .search-input:focus { border-color: var(--cyan); }
-    .search-icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-secondary); }
-    .categories { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+
+    .search-input:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 16px rgba(0, 229, 255, 0.25);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-secondary);
+      pointer-events: none;
+    }
+
+    .categories {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
     .cat-btn {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--glass-border);
@@ -158,73 +286,473 @@
       font-size: 0.82rem;
       font-weight: 600;
       cursor: pointer;
+      transition: all 0.2s;
     }
-    .cat-btn.active, .cat-btn:hover { background: rgba(0, 229, 255, 0.2); color: #fff; border-color: var(--cyan); }
-    .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-top: 18px; }
-    .app-card { padding: 18px; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: inherit; }
-    .app-card:hover { transform: translateY(-4px); border-color: var(--cyan); }
-    .card-top { display: flex; align-items: center; gap: 13px; margin-bottom: 12px; }
-    .app-icon { width: 58px; height: 58px; border-radius: 14px; object-fit: cover; background: rgba(255,255,255,0.08); }
-    .app-meta h3 { font-size: 1.02rem; font-weight: 700; margin-bottom: 4px; color: #fff; }
-    .version-tag { font-size: 0.73rem; color: var(--cyan); background: rgba(0, 229, 255, 0.1); padding: 2px 7px; border-radius: 6px; }
-    .app-desc { font-size: 0.84rem; color: var(--text-secondary); line-height: 1.45; margin-bottom: 16px; }
-    .btn-card { width: 100%; padding: 10px; border-radius: 10px; background: rgba(0, 229, 255, 0.18); border: 1px solid rgba(0, 229, 255, 0.4); color: #fff; font-weight: 600; text-align: center; }
+
+    .cat-btn.active, .cat-btn:hover {
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.2), rgba(41, 121, 255, 0.25));
+      color: #fff;
+      border-color: var(--cyan);
+      box-shadow: 0 0 12px rgba(0, 229, 255, 0.25);
+    }
+
+    /* Adsterra 300x250 Slot */
+    .ad-slot {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 20px auto;
+      padding: 12px;
+      max-width: 336px;
+      min-height: 278px;
+    }
+
+    .ad-label {
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    /* App Grid */
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .app-card {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+    }
+
+    .app-card:hover {
+      transform: translateY(-4px);
+      background: var(--glass-hover);
+      border-color: var(--glass-highlight);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin-bottom: 12px;
+    }
+
+    .app-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 14px;
+      object-fit: cover;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      flex-shrink: 0;
+    }
+
+    .app-meta h3 {
+      font-size: 1.02rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #fff;
+    }
+
+    .version-tag {
+      display: inline-block;
+      font-size: 0.73rem;
+      color: var(--cyan);
+      background: rgba(0, 229, 255, 0.1);
+      padding: 2px 7px;
+      border-radius: 6px;
+      border: 1px solid rgba(0, 229, 255, 0.2);
+    }
+
+    .companion-pill {
+      display: inline-block;
+      font-size: 0.68rem;
+      color: #fbbf24;
+      background: rgba(251, 191, 36, 0.12);
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      padding: 2px 7px;
+      border-radius: 6px;
+      margin-top: 4px;
+    }
+
+    .app-desc {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+      margin-bottom: 16px;
+    }
+
+    .btn-card {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.18), rgba(41, 121, 255, 0.22));
+      border: 1px solid rgba(0, 229, 255, 0.4);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.86rem;
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .app-card:hover .btn-card {
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      color: #000;
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 48px;
+      padding: 28px 16px;
+      text-align: center;
+      border-top: 1px solid var(--glass-border);
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--cyan);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* Modals (Privacy Policy & Request App) */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 16px;
+    }
+
+    .modal-overlay.open { display: flex; }
+
+    .modal-box {
+      max-width: 580px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 24px;
+      position: relative;
+    }
+
+    .modal-box h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      color: var(--cyan);
+    }
+
+    .modal-box h4 {
+      font-size: 0.96rem;
+      margin: 14px 0 6px;
+      color: #fff;
+    }
+
+    .modal-box p {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .close-modal {
+      position: sticky;
+      top: 0;
+      float: right;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--glass-border);
+      color: #fff;
+      padding: 5px 11px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .req-input {
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      border-radius: 10px;
+      border: 1px solid var(--glass-border);
+      background: rgba(0, 0, 0, 0.45);
+      color: #fff;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .req-input:focus { border-color: var(--cyan); }
+
+    .btn-submit-req {
+      width: 100%;
+      padding: 13px;
+      border-radius: 11px;
+      border: none;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      color: #000;
+      font-weight: 800;
+      font-size: 0.92rem;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Compact Single-Line Top Bar -->
   <header>
     <nav class="glass nav-bar">
       <a href="index.html" class="brand">
-        <div class="brand-logo">D</div>
+        <div class="brand-logo">
+          <img src="logo.png" alt="D" onerror="this.style.display='none'; this.parentElement.innerText='D';">
+        </div>
         <span class="brand-title">DicsyMods</span>
       </a>
+
       <div class="nav-actions">
-        <a href="https://t.me/your_telegram_channel" target="_blank" class="icon-btn tg-btn">✈️</a>
-        <button class="icon-btn" onclick="document.getElementById('dropdownMenu').classList.toggle('show')">⋮</button>
+        <!-- Compact Telegram Icon Button -->
+        <a id="topTgBtn" href="https://t.me/your_telegram_channel" target="_blank" rel="noopener" class="icon-btn tg-btn" title="Join Telegram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.96-.75 3.78-1.65 6.31-2.74 7.58-3.27 3.61-1.51 4.35-1.77 4.84-1.78.11 0 .35.03.5.16.13.1.17.24.18.34.02.07.02.21.01.32z"/></svg>
+        </a>
+
+        <!-- Three-Dot Menu Button -->
+        <button class="icon-btn" onclick="toggleMenu(event)" aria-label="Menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+        </button>
       </div>
+
+      <!-- Dropdown Drawer -->
       <div id="dropdownMenu" class="dropdown-menu">
-        <a href="https://t.me/your_telegram_channel" target="_blank" class="menu-item">📢 Join Telegram</a>
+        <button class="menu-item" onclick="openRequestModal()">
+          <span>💡</span> Request an App / Mod
+        </button>
+        <a id="menuTgLink" href="https://t.me/your_telegram_channel" target="_blank" rel="noopener" class="menu-item">
+          <span>📢</span> Join Telegram Channel
+        </a>
+        <div class="menu-divider"></div>
+        <button class="menu-item" onclick="openPolicy()">
+          <span>🛡️</span> Privacy & Risk Policy
+        </button>
+        <button class="menu-item" onclick="openPolicy()">
+          <span>⚖️</span> DMCA Disclaimer
+        </button>
       </div>
     </nav>
   </header>
+
   <main class="container">
     <section class="glass hero">
+      <span class="hero-badge">⚡ Verified High-Speed Packages</span>
       <h2>Next-Gen Apps & Mods</h2>
-      <p>Select any package below to download securely.</p>
+      <p>Select any package below to view full specifications, companion toggles, and direct MediaFire download mirrors.</p>
+      
       <div class="search-wrap">
         <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <input type="text" id="searchInput" class="search-input" placeholder="Search apps..." oninput="filterApps()">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search apps or games (e.g. YouTube, CapCut, Terraria)..." oninput="filterApps()">
+      </div>
+
+      <div class="categories">
+        <button class="cat-btn active" onclick="setCategory('All', this)">All Packages</button>
+        <button class="cat-btn" onclick="setCategory('Games', this)">Games</button>
+        <button class="cat-btn" onclick="setCategory('Streaming', this)">Media & Streaming</button>
+        <button class="cat-btn" onclick="setCategory('Utilities', this)">Tools & Utilities</button>
       </div>
     </section>
+
+    <!-- Adsterra 300x250 Banner Slot -->
+    <div class="glass ad-slot">
+      <span class="ad-label">Sponsored Advertisement</span>
+      <script>
+        atOptions = {
+          'key' : '0779c4a25586b14151a2a016a4ffc910',
+          'format' : 'iframe',
+          'height' : 250,
+          'width' : 300,
+          'params' : {}
+        };
+      </script>
+      <script src="https://bellnewyork.org/22/0779c4a25586b14151a2a016a4ffc910"></script>
+    </div>
+
+    <!-- Dynamic App Grid -->
     <section id="appGrid" class="app-grid"></section>
   </main>
+
+  <footer>
+    <div class="footer-links">
+      <a onclick="openRequestModal()">Request an App</a>
+      <a onclick="openPolicy()">Privacy & Risk Policy</a>
+      <a onclick="openPolicy()">DMCA Notice</a>
+      <a id="footerTgLink" href="https://t.me/your_telegram_channel" target="_blank" rel="noopener">Telegram Channel</a>
+    </div>
+    <p>©️ 2026 DicsyMods. All downloads and installations are performed strictly at the user's own risk.</p>
+  </footer>
+
+  <!-- Request an App Bluff Modal (Redirects to Telegram) -->
+  <div id="requestModal" class="modal-overlay" onclick="if(event.target===this)closeRequestModal()">
+    <div class="glass modal-box">
+      <button class="close-modal" onclick="closeRequestModal()">✕</button>
+      <h3>💡 Request an App or Mod</h3>
+      <p>Can't find the APK or game mod you're looking for? Submit your request below and our team will upload it to our Telegram channel.</p>
+      <input type="text" id="reqAppName" class="req-input" placeholder="App or Game Name (e.g. Spotify, Lightroom, GTA)">
+      <input type="text" id="reqAppFeature" class="req-input" placeholder="Mod Features Needed (e.g. Premium Unlocked, Ad-Free)">
+      <button class="btn-submit-req" onclick="submitAppRequest()">Submit Request & Join Queue &rarr;</button>
+    </div>
+  </div>
+
+  <!-- Privacy Policy & Risk Disclaimer Modal -->
+  <div id="policyModal" class="modal-overlay" onclick="if(event.target===this)closePolicy()">
+    <div class="glass modal-box">
+      <button class="close-modal" onclick="closePolicy()">✕ Close</button>
+      <h3>Privacy Policy & User Risk Disclaimer</h3>
+      
+      <h4>1. Assumption of Risk & Full Liability Disclaimer</h4>
+      <p>By accessing DicsyMods and downloading any application package (.apk) linked on this website, you explicitly acknowledge and agree that <strong>all downloads, installations, and usage are performed 100% at your own sole risk and responsibility</strong>. All files are indexed and provided on an "AS-IS" and "AS-AVAILABLE" basis without warranties of any kind.</p>
+      <p>DicsyMods, its creators, and its administrators assume zero liability for any device malfunction, data loss, account suspension, software incompatibility, or damages arising from the installation or use of third-party or modified software packages.</p>
+
+      <h4>2. Third-Party Links & External Hosting</h4>
+      <p>Application binaries are hosted on external third-party cloud storage providers (such as MediaFire). Users are responsible for verifying package compatibility and scanning files on their own devices prior to execution.</p>
+
+      <h4>3. Privacy Policy & Advertising Partners</h4>
+      <p>DicsyMods does not require user registration or collect personal identity data. We partner with third-party advertising networks (including Adsterra and Monetag) to keep our directory free. These networks may use cookies, web beacons, and non-identifying browser metadata to display relevant advertisements.</p>
+
+      <h4>4. Trademarks & DMCA Notice</h4>
+      <p>All application names, logos, and brands are property of their respective owners and are used strictly for identification purposes. If you are a copyright holder and wish to request link removal, please contact us via our official channel.</p>
+    </div>
+  </div>
+
   <script>
-    const APPS = [
-      { id: 'youtube', name: 'YouTube ReVanced', version: 'v21.41.525', category: 'Streaming', desc: 'Ad-free video streaming with background playback.', url: 'https://www.mediafire.com/file/5o13llkn0754vz0/YouTube.apk/file' },
-      { id: 'capcut', name: 'CapCut Pro', version: 'v19.7.0', category: 'Utilities', desc: 'Pro video editor with unlocked effects.', url: 'https://www.mediafire.com/file/te3vuvbn7lm8358/Capcut.apk/file' }
-    ];
+    let APPS = [];
+    let TELEGRAM_URL = "https://t.me/your_telegram_channel";
+    let activeCategory = 'All';
+
+    // Load apps dynamically from apps.json
+    fetch('apps.json', { cache: 'no-store' })
+      .then(res => res.json())
+      .then(data => {
+        if (data.telegramUrl) {
+          TELEGRAM_URL = data.telegramUrl;
+          document.getElementById('topTgBtn').href = TELEGRAM_URL;
+          document.getElementById('menuTgLink').href = TELEGRAM_URL;
+          document.getElementById('footerTgLink').href = TELEGRAM_URL;
+        }
+        APPS = Array.isArray(data) ? data : (data.apps || []);
+        renderGrid(APPS);
+      })
+      .catch(err => {
+        console.error("Failed to load apps.json:", err);
+      });
+
     function renderGrid(list) {
-      document.getElementById('appGrid').innerHTML = list.map(app => `
-        <div class="glass app-card">
+      const grid = document.getElementById('appGrid');
+      grid.innerHTML = list.map(app => `
+        <a href="app.html?id=${app.id}" class="glass app-card">
           <div>
             <div class="card-top">
-              <div class="app-icon" style="display:flex;align-items:center;justify-content:center;font-weight:bold;color:var(--cyan);">${app.name[0]}</div>
+              <img id="icon-${app.id}" class="app-icon" src="https://www.google.com/s2/favicons?sz=128&domain=${app.domain}" alt="${app.name}">
               <div class="app-meta">
                 <h3>${app.name}</h3>
                 <span class="version-tag">${app.version}</span>
+                ${app.badge ? `<br><span class="companion-pill">★ ${app.badge}</span>` : ''}
               </div>
             </div>
             <p class="app-desc">${app.desc}</p>
           </div>
-          <a href="${app.url}" target="_blank" class="btn-card">Download APK &rarr;</a>
-        </div>
+          <div class="btn-card">View Details & Download &rarr;</div>
+        </a>
       `).join('');
+
+      list.forEach(app => {
+        fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(app.searchTerm)}&entity=software&limit=1`)
+          .then(res => res.json())
+          .then(data => {
+            if (data.results && data.results[0] && data.results[0].artworkUrl512) {
+              const img = document.getElementById(`icon-${app.id}`);
+              if (img) img.src = data.results[0].artworkUrl512;
+            }
+          }).catch(() => {});
+      });
     }
+
+    function setCategory(cat, btn) {
+      activeCategory = cat;
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterApps();
+    }
+
     function filterApps() {
       const q = document.getElementById('searchInput').value.toLowerCase();
-      renderGrid(APPS.filter(a => a.name.toLowerCase().includes(q)));
+      const filtered = APPS.filter(app => {
+        const matchesCat = activeCategory === 'All' || app.category === activeCategory;
+        const matchesQuery = app.name.toLowerCase().includes(q) || app.desc.toLowerCase().includes(q);
+        return matchesCat && matchesQuery;
+      });
+      renderGrid(filtered);
     }
-    renderGrid(APPS);
+
+    function toggleMenu(e) {
+      e.stopPropagation();
+      document.getElementById('dropdownMenu').classList.toggle('show');
+    }
+
+    document.addEventListener('click', () => {
+      document.getElementById('dropdownMenu').classList.remove('show');
+    });
+
+    function openPolicy() {
+      document.getElementById('dropdownMenu').classList.remove('show');
+      document.getElementById('policyModal').classList.add('open');
+    }
+
+    function closePolicy() {
+      document.getElementById('policyModal').classList.remove('open');
+    }
+
+    function openRequestModal() {
+      document.getElementById('dropdownMenu').classList.remove('show');
+      document.getElementById('requestModal').classList.add('open');
+    }
+
+    function closeRequestModal() {
+      document.getElementById('requestModal').classList.remove('open');
+    }
+
+    function submitAppRequest() {
+      const appName = document.getElementById('reqAppName').value.trim() || 'Requested APK';
+      alert(`✅ Request for "${appName}" has been queued!\n\nJoin our official Telegram channel now to get notified as soon as the download link drops.`);
+      window.open(TELEGRAM_URL, '_blank');
+      closeRequestModal();
+    }
   </script>
+
+  <!-- Monetag Vignette Banner (Zone 12039054) -->
+  <script>(function(s){s.dataset.zone='12039054',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+
+  <!-- Monetag In-Page Push Banner (Zone 12039068) -->
+  <script>(function(s){s.dataset.zone='12039068',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+
+  <!-- PASTE YOUR ADSTERRA POPUNDER SCRIPT BELOW THIS LINE IF NEEDED -->
+
 </body>
 </html>
