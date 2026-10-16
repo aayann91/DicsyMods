@@ -1,20 +1,17 @@
 [
-  { "id": "youtube", "name": "YouTube ReVanced", "version": "v21.41.525", "category": "Streaming", "desc": "Ad-free video streaming with background playback and SponsorBlock.", "url": "https://www.mediafire.com/file/5o13llkn0754vz0/YouTube-Premium-v21.41.525-MOD-OTR-%2528Getmodsapk.com%2529.apk/file" },
-  { "id": "microg", "name": "microG Services", "version": "v0.3.1.4", "category": "Utilities", "desc": "Google Account login framework for ReVanced.", "url": "https://www.mediafire.com/file/7gr5asfiecgzh0n/microG-Services-v0.3.1.4.240913_%2528All_Devices%2529-MOD-%2528Getmodsapk.com%2529.apk/file" },
-  { "id": "capcut", "name": "CapCut Pro", "version": "v19.7.0", "category": "Utilities", "desc": "Pro video editor with unlocked 4K export and effects.", "url": "https://www.mediafire.com/file/te3vuvbn7lm8358/Capcut-v19.7.0-MOD-OTR-%2528Getmodsapk.com%2529.apk/file" },
-  { "id": "protonvpn", "name": "Proton VPN", "version": "v5.20.39", "category": "Utilities", "desc": "High-speed encrypted Swiss VPN tunnel.", "url": "https://www.mediafire.com/file/d7mqyl9857qxfng/Proton-VPN-v5.20.39.0-MOD-OTR-.Getapkmods.com.apk/file" },
-  { "id": "frag", "name": "FRAG Pro Shooter", "version": "v5.6.0", "category": "Games", "desc": "Fast-paced 1v1 hero shooter arena action.", "url": "https://www.mediafire.com/file/e7p6n5d485wnrbu/FRAG-v5.6.0-MOD-GMA-%2528Getmodsapk.com%2529.apk/file" },
-  { "id": "terraria", "name": "Terraria", "version": "v1.4.5", "category": "Games", "desc": "Complete 2D action-adventure sandbox game.", "url": "https://www.mediafire.com/file/zmfthrxqid5z669/terraria-v1.4.5.8.6-mod.apk/file" },
-  { "id": "subwaysurfers", "name": "Subway Surfers", "version": "v3.70.2", "category": "Games", "desc": "Unlimited coins and keys mod version.", "url": "https://www.mediafire.com/file/9s9hh7h6r6qz2fh/Subway-Surfers-v3.70.2-mod.apk/file" },
-  { "id": "homescapes", "name": "Homescapes", "version": "v9.2.102", "category": "Games", "desc": "Renovate mansion with unlimited stars mod.", "url": "https://www.mediafire.com/file/7uy7zvhrnunphm0/Homescapes-v9.2.102-MOD-GMA-%2528Getmodsapk.com%2529.apk/file" },
-  { "id": "pizzaready", "name": "Pizza Ready!", "version": "v60.4.0", "category": "Games", "desc": "Run your own pizzeria empire with unlimited money.", "url": "https://www.mediafire.com/file/d51b2fthiefyv36/Pizza-Ready-60.4.0-mod.apk/file" },
-  { "id": "dynamons", "name": "Dynamons World", "version": "v1.13.39", "category": "Games", "desc": "Catch and train creatures with unlimited shards.", "url": "https://www.mediafire.com/file/utno8ty2b6kalxd/Dynamons-World-v1.13.39-MOD-GMA-%2528Getmodsapk.com%2529.apk/file" },
-  { "id": "zee5", "name": "ZEE5 Premium", "version": "v39.52.8", "category": "Streaming", "desc": "Ad-free 4K movies and web series streaming.", "url": "https://www.mediafire.com/file/jc5eg1k3elg044k/zee5-premium_v39.52.8-Adfree-an1.ca_.apk/file" },
-  { "id": "jiosaavn", "name": "JioSaavn Pro", "version": "v10.3.4", "category": "Streaming", "desc": "320kbps extreme audio quality without ads.", "url": "https://www.mediafire.com/file/bv1krukbetdi1my/JioSaavn-v10.3.4-MOD-OTR-%2528Getmodsapk.com%2529.apk/file" },
-  { "id": "larkplayer", "name": "Lark Player", "version": "v2026.15", "category": "Streaming", "desc": "Pro equalizer offline music and video player.", "url": "https://www.mediafire.com/file/xqtf1835ta20w25/Lark-Player-v2026.15.6-MOD-OTR-%2528Getmodsapk.com%2529.apk/file" },
-  { "id": "vidmate", "name": "VidMate HD", "version": "v6.0229", "category": "Streaming", "desc": "VIP unlocked multi-threaded video downloader.", "url": "https://www.mediafire.com/file/rk6uq5ap0g5cok4/vidmate.v6.0229.encrypt.getapkmods.com.apk/file" },
-  { "id": "physicswallah", "name": "Physics Wallah", "version": "Latest", "category": "Utilities", "desc": "EdTech portal for JEE and NEET preparation.", "url": "https://www.mediafire.com/file/xydqugfsaxsdvo1/physicswallah-apkpure.co.in.apk/file" },
-  { "id": "alquran", "name": "Al Quran Premium", "version": "v4.4.41", "category": "Utilities", "desc": "Premium unlocked Quran recitation and translation.", "url": "https://www.mediafire.com/file/9649744h6gsdihf/Al_Quran_v4.4.41_%2528Premium%2529.apk/file" },
-  { "id": "easyplay", "name": "EasyPlay", "version": "Latest", "category": "Games", "desc": "Instant gaming and entertainment utility client.", "url": "https://www.mediafire.com/file/3wlnj9khpispypy/EasyPlay.apk/file" },
-  { "id": "mediafire", "name": "MediaFire Client", "version": "v92", "category": "Utilities", "desc": "Official cloud storage manager app.", "url": "https://www.mediafire.com/file/34xidxa66y36i8y/MediaFire_92.apk/file" }
+  {
+    "downloadUrl": "https://example.com/downloads/Spotify_Music_v8.9.18_Mod.apk",
+    "category": "Music & Audio",
+    "modFeatures": "Premium Unlocked, No Ads"
+  },
+  {
+    "downloadUrl": "https://example.com/downloads/Minecraft_v1.21.2_GodMode.apk",
+    "category": "Games",
+    "modFeatures": "Unlocked Skins, Immortality"
+  },
+  {
+    "downloadUrl": "https://example.com/downloads/CapCut_v12.4.0_Pro.apk",
+    "category": "Video Editors",
+    "modFeatures": "Pro Templates Unlocked, No Watermark"
+  }
 ]
